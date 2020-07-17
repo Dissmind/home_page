@@ -1,0 +1,6 @@
+.BookItem {
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    border: black solid .5px;
+}
