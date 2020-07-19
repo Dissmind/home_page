@@ -16,6 +16,7 @@ header > .name {
 
 main {
     height: 85vh;
+    overflow-y: auto;
 }
 
 footer {

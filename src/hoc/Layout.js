@@ -22,7 +22,7 @@ export default class Layout extends Component {
         return (
             <div className='Layout'>
                 {
-                    this.state.menuToggle ? <Menu /> : null
+                    this.state.menuToggle ? <Menu menuToggle={this.menuToggle} /> : null
                 }
 
                 <header>
