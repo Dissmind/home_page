@@ -1,23 +1,48 @@
-import React from "react";
+import React, {Component} from 'react'
 
 import './Layout.css'
+import Menu from "../WelcomeModule/Components/Menu/Menu";
 
-const Layout = props => {
 
-    return (
-        <div className='Layout'>
-            <header>
-                <div className='name'>Dissmind</div>
-                <nav></nav>
-            </header>
+export default class Layout extends Component {
 
-            <main>
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            menuToggle: false
+        }
+    }
+
+    menuToggle = () => {
+        this.setState({menuToggle: !this.state.menuToggle})
+    }
+
+    render() {
+        return (
+            <div className='Layout'>
                 {
-                    props.children
+                    this.state.menuToggle ? <Menu /> : null
                 }
-            </main>
-        </div>
-    )
-}
 
-export default Layout
+                <header>
+                    <div className='name'>Dissmind</div>
+                    <nav></nav>
+                </header>
+
+                <main>
+                    {
+                        this.props.children
+                    }
+                </main>
+
+                <footer>
+                    <span
+                        className='MenuButton'
+                        onClick={this.menuToggle}
+                    >[+]</span>
+                </footer>
+            </div>
+        )
+    }
+}

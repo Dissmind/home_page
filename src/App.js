@@ -1,16 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
-import MainLibraryLayout from "./LibraryModule/MainLibraryLayout";
+
+
 import Layout from "./hoc/Layout";
+
+import MainLibraryLayout from "./LibraryModule/MainLibraryLayout";
+import MainWelcomeModuleLayout from "./WelcomeModule/MainWelcomeModuleLayout";
+
+import {BrowserRouter, Route} from "react-router-dom";
+
 
 function App() {
   return (
-    <div>
-        <Layout>
-            <MainLibraryLayout />
-        </Layout>
-    </div>
+      <BrowserRouter>
+          <Layout>
+              <Route path='/library' component={MainLibraryLayout} />
+              <Route path='/' component={MainWelcomeModuleLayout} />
+          </Layout>
+      </BrowserRouter>
   );
 }
 
